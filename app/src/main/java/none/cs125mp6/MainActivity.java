@@ -61,4 +61,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("ingredients", ingredientList);
         startActivity(intent);
     }
+
+
 }
