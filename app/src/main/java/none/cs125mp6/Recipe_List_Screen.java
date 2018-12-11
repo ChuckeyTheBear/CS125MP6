@@ -12,7 +12,10 @@ import android.widget.ListView;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
-import org.json.JSONException;
+import org.json.JSONTokener;
+import org.json.simple.*;
+import org.json.simple.parser.*;
+import java.io.FileReader;
 
 import java.util.ArrayList;
 
@@ -35,30 +38,38 @@ public class Recipe_List_Screen extends AppCompatActivity {
         String finalURL = "https://api.edamam.com/search?q=";
         finalURL += ingredientsAsString;
         finalURL += "&app_id=9bcb6bc3&app_key=b0ef075aac9128f84e02f26a65137c35&from=0&to=10";
-    /*
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, finalURL, null, new Response.Listener<JSONObject>(){
-            @Override
-            public void onResponse(JSONObject response) {
-                try {}
-                catch()
-            }
-        });
 
-                Request.Method.GET,
-                "",
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(final JSONObject response) {
-                        Log.d(TAG, response.toString());
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(final VolleyError error) {
-                Log.w(TAG, error.toString());
+        JSONParser jsonParser = new JSONParser();
+        JSONObject result = parser.parse(jsonString).getAsJsonObject();
+
+
+        /**try {
+
+            Object obj = parser.parse(new FileReader("wadingpools.json"));
+
+            JSONObject jsonObject = (JSONObject) obj;
+            System.out.println(jsonObject);
+
+            JSONArray featuresArray = (JSONArray) jsonObject.get("features");
+            Iterator iter = featuresArray.iterator();
+
+            while (iter.hasNext()) {
+                Map<String, String> propertiesMap = ((Map<String, String>) jsonObject.get("properties"));
+                Iterator<Map.Entry<String, String>> itrMap = propertiesMap.entrySet().iterator();
+                while(itrMap.hasNext()){
+                    Map.Entry<String, String> pair = itrMap.next();
+                    System.out.println(pair.getKey() + " : " + pair.getValue());
+                }
             }
-        });
-        */
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+
         //RequestQueue requestQueue = Volley.newRequestQueue(this);
 //
 //        RequestFuture<JSONObject> future = RequestFuture.newFuture();
