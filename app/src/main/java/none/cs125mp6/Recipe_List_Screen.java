@@ -1,4 +1,7 @@
 package none.cs125mp6;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Recipe_List_Screen extends AppCompatActivity {
@@ -31,8 +35,23 @@ public class Recipe_List_Screen extends AppCompatActivity {
         finalURL += ingredientsAsString;
         finalURL += "&app_id=9bcb6bc3&app_key=b0ef075aac9128f84e02f26a65137c35&from=0&to=10";
 
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                "",
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(final JSONObject response) {
+                        Log.d(TAG, response.toString());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(final VolleyError error) {
+                Log.w(TAG, error.toString());
+            }
+        });
 
-//        RequestQu//eue requestQueue = Volley.newRequestQueue(this);
+        //RequestQueue requestQueue = Volley.newRequestQueue(this);
 //
 //        RequestFuture<JSONObject> future = RequestFuture.newFuture();
 //        JsonObjectRequest request = new JsonObjectRequest(finalURL, new JSONObject(), future, future);
