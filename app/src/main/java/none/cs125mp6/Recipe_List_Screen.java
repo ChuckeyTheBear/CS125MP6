@@ -37,9 +37,9 @@ public class Recipe_List_Screen extends AppCompatActivity {
         finalURL += ingredientsAsString;
         finalURL += "&app_id=9bcb6bc3&app_key=b0ef075aac9128f84e02f26a65137c35&from=0&to=10";
 
-        JSONParser jsonParser = new JSONParser();
-        JSONObject result = jsonParser.parse(jsonParser).getAsJsonObject();
-        String[] ingredients = result.get("ingredients").getAsString();
+        //JSONParser jsonParser = new JSONParser();
+        //JSONObject result = jsonParser.parse(jsonParser).getAsJsonObject();
+        //String[] ingredients = result.get("ingredients").getAsString();
 
         /**try {
 
