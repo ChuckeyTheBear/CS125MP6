@@ -1,7 +1,5 @@
 package none.cs125mp6;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.*;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
 public class Recipe_List_Screen extends AppCompatActivity {
@@ -34,8 +35,15 @@ public class Recipe_List_Screen extends AppCompatActivity {
         String finalURL = "https://api.edamam.com/search?q=";
         finalURL += ingredientsAsString;
         finalURL += "&app_id=9bcb6bc3&app_key=b0ef075aac9128f84e02f26a65137c35&from=0&to=10";
+    /*
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, finalURL, null, new Response.Listener<JSONObject>(){
+            @Override
+            public void onResponse(JSONObject response) {
+                try {}
+                catch()
+            }
+        });
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 "",
                 null,
@@ -50,7 +58,7 @@ public class Recipe_List_Screen extends AppCompatActivity {
                 Log.w(TAG, error.toString());
             }
         });
-
+        */
         //RequestQueue requestQueue = Volley.newRequestQueue(this);
 //
 //        RequestFuture<JSONObject> future = RequestFuture.newFuture();
