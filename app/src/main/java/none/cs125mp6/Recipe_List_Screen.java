@@ -32,12 +32,12 @@ public class Recipe_List_Screen extends AppCompatActivity {
         finalURL += "&app_id=9bcb6bc3&app_key=b0ef075aac9128f84e02f26a65137c35&from=0&to=10";
 
 
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
+//        RequestQu//eue requestQueue = Volley.newRequestQueue(this);
 //
 //        RequestFuture<JSONObject> future = RequestFuture.newFuture();
 //        JsonObjectRequest request = new JsonObjectRequest(finalURL, new JSONObject(), future, future);
 //        requestQueue.add(request);
-//
+
 //
 //        try {
 //            JSONObject response = future.get(); // this will block
